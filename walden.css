@@ -16,6 +16,30 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* set up CSS vars */
+  --base-color: hsl(0, 0%, 20%);
+  --base-bg: hsl(0, 0%, 96%);
+  --base-color--transparent: hsla(0, 0%, 20%, 0.375);
+  --base-color--very-transparent: hsla(0, 0%, 20%, 0.0375);
+  --base-link-color: #4a69bd;
+  --base-link-visited: rebeccapurple;
+  --base-link-active: hsl(344, 79%, 40%);
+}
+
+@media (prefers-color-scheme: dark), (prefers-dark-interface) {
+  :root {
+    --base-color: hsl(0, 0%, 96%);
+    --base-bg: hsl(0, 0%, 20%);
+    --base-color--transparent: hsla(0, 0%, 96%, 0.375);
+    --base-color--very-transparent: hsla(0, 0%, 96%, 0.0375);
+    --base-link-color: #34ace0;
+    --base-link-color: #25ccf7;
+    --base-link-visited: #d6a2e8;
+    --base-link-active: #f1c40f;
+  }
+}
+
 html {
   /* normalize */
   -webkit-text-size-adjust: 100%;
@@ -39,7 +63,21 @@ body {
   margin: 0;
   line-height: 1.4;
   background-color: hsl(0, 0%, 94%);
+  background-color: var(--base-bg);
   color: hsl(0, 0%, 20%);
+  color: var(--base-color);
+}
+
+a {
+  color: var(--base-link-color);
+}
+
+a:active {
+  color: var(--base-link-active);
+}
+
+a:visited {
+  color: var(--base-link-visited);
 }
 
 main {
@@ -76,6 +114,7 @@ hr {
   border: 0;
   height: 0.0625em;
   background-color: hsl(0, 0%, 20%);
+  background-color: var(--base-color);
 }
 
 abbr {
@@ -168,6 +207,7 @@ tfoot tr {
 
 tbody tr:nth-of-type(even) {
   background-color: hsla(0, 0%, 0%, 0.0375);
+  background-color: var(--base-color--very-transparent);
 }
 
 cite::before {
@@ -192,7 +232,10 @@ ul {
 
 code {
   background-color: hsla(0, 0%, 0%, 0.0375);
+  background-color: var(--base-color--very-transparent);
   border-radius: 0.125em;
-  border: 1px solid hsla(0, 0%, 0%, 0.375);
+  border: 1px solid;
+  border-color: hsla(0, 0%, 0%, 0.375);
+  border-color: var(--base-color--transparent);
   padding: 0 0.25em;
 }
