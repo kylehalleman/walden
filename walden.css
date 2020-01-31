@@ -215,12 +215,6 @@ tbody tr:nth-of-type(even) {
   background-color: var(--base-color--very-transparent);
 }
 
-cite::before {
-  content: "—";
-  margin-right: 0.5em;
-  margin-inline-end: 0.5em;
-}
-
 ol,
 ul {
   margin: 0 0 1em;
